@@ -1,31 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
-int bit(string x,int y) {
-  int count=y;
-   if(x=="X++"){
-   count++;
-   }
-   else if(x=="X--") {
-   count--;
-   }
-   else if(x=="++X") {
-      ++count;
-   }
-   else{
-    --count;
-   }
-return count;
+string square(const vector<long long>ar,int size) {
+  long long sum=0;
+  string result;
+   for(int j=0;j<size;j++){
+        sum=sum+ar[j];
+        }
+      double sqr=sqrt(sum);
+      double Floor=floor(sqr);
+      if((sqr-Floor)==0){
+        result="YES";
+      }
+      else{
+        result="NO";
+      }
+return result;
 
 }
 
 int main() {
-    int n;
-    cin >> n;int result=0;
-    for(int i=0;i<n;i++){
-        string s;
-        cin>>s;
-    result=bit(s,result);
+    int n,t;
+    cin >> t;
+    string farr[t];
+    for(int i=0;i<t;i++){
+        cin>>n;
+        vector<long long>arr(n);
+
+        for(int j=0;j<n;j++){
+        cin>>arr[j];
+        }
+
+      farr[i]=square(arr,n);
     }
-    cout<<result;
+    for(int i=0;i<t;i++){
+        cout<<farr[i]<<endl;
+    }
     return 0;
 }
